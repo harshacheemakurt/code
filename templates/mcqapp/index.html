@@ -7,38 +7,20 @@
 </head>
 <body>
   <h3>Quiz I</h3>
+<form action= 'answers/' method = "POST" name="question"  >
+    {% for question in questions %}
+<div class = 'question'>Q. {{ question.question }} </div><br>
+<div id= "choices" class='select'>
+    <input type = "radio" name="{{question.id}}" value="{{question.option1}}">{{question.option1}}<br>
+    <input type = "radio" name="{{question.id}}" value="{{question.option2}}">{{question.option2}}<br>
+    <input type = "radio" name="{{question.id}}" value="{{question.option3}}">{{question.option3}}<br>
+    <input type = "radio" name="{{question.id}}" value="{{question.option4}}">{{question.option4}}<br>
 
-<form method="post" action="mailto:raizen@mail.utexas.edu?subject=Vocabulary Quiz 1" enctype="text/plain">
-
-Check the answer to each multiple-coice question, and click on the "Send Form" button to submit the information.
-
-<P>1. The word which means "house" is:<BR>
-<input type="radio" name="1.The word which means house is" value="maison">maison<BR>
-<input type="radio" name="1.The word which means house is" value="quatre">quatre<BR>
-<input type="radio" name="1.The word which means house is" value="soleil">soleil<BR>
-<input type="radio" name="1.The word which means house is" value="poisson">poisson<BR>
-</p>
-
-<P>2. The word which means "fish" is:<BR>
-<input type="radio" name="2. The word which means fish is" value="maison">maison<BR>
-<input type="radio" name="2. The word which means fish is" value="valise">valise<BR>
-<input type="radio" name="2. The word which means fish is" value="soleil">soleil<BR>
-<input type="radio" name="2. The word which means fish is" value="poisson">poisson<BR>
-</p>
-
-<P>3. The word which means "suitcase" is:<BR>
-<input type="radio" name="3. The word which means suitcase is" value="renard">renard<BR>
-<input type="radio" name="3. The word which means suitcase is" value="valise">valise<BR>
-<input type="radio" name="3. The word which means suitcase is" value="soleil">soleil<BR>
-<input type="radio" name="3. The word which means suitcase is" value="poisson">poisson<BR>
-</p>
-
+</div>
 <br>
-<br>
-<br>
-<br>
-<input type="submit" value="Send Form">
-<input type="reset" value="Clear Form">
+    {% endfor %}
+<div style="text-align:center"> <input style="padding: 10px 35px;font-size:120%;cursor: pointer;" type="submit" class="submit" id="submit" value="Submit"/></div>
+    {% csrf_token %}
 </form>
 
 </body>

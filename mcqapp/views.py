@@ -5,13 +5,23 @@ from mcqapp.models import Quiz
 
 # Create your views here.
 
-def index(request):
-    # quizs = Quiz.objects.filter(is_published= True).order_by('-list_date')
+value =0
+def index1(request):
+    questions = Quiz.objects.all()
+    global value
+    if request.method == 'POST':
+        for question in questions:
+            actual_answer = question.answers
+            select_option = request.POST.get(str(question.id))
 
-    quizs = Quiz.objects.order_by('-list_date').filter(is_published=True) # filter by created date in descending order
-    # .objects.order_by('-list_date').filter(is_published=True)
-    context=  {
-        'quizs': quizs
-    }
+            if (select_option == actual_answer):
+                value += 1
+        context1 = {'value': value}
+        return render(request,'mcqapp/answer.html',context1)
+    else:
 
-    return render(request, 'mcqapp/index3.html', context)
+
+
+        context = {'questions': questions}
+        return render(request, 'mcqapp/index.html', context)
+

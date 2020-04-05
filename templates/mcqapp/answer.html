@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+{% block main_content %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+	<title>Score</title>
 </head>
-<body>
-$END$
+{% load static %}
+<h1 style="color:#CC0000; font-family:verdana; font-size:300%;text-align:center;"> QUIZ</h1>
+<body style="background-image:url('http://wallpapershd.press/wp-content/uploads/2016/05/Success-Wallpaper-New-B5X.jpg');font-family:courier; font-size:150%;">
+
+<h1 style="color:#000066">Your have correctly answered {{value}}</h1>
+
+
 </body>
+{% endblock %}
 </html>
