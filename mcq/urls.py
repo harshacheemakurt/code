@@ -20,7 +20,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('index/',views.index1),
-    path('index/', include('mcqapp.urls')),
+    # path('index/', include('mcqapp.urls')),
+    path('', include('mcqapp.urls')),
+    # path('login/', include('mcqapp.urls')),
     # path('answers/', views.index1)
 
 ]

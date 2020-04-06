@@ -7,7 +7,8 @@
 </head>
 <body>
   <h3>Quiz I</h3>
-<form action= 'answers/' method = "POST" name="question"  >
+
+<form action= "{% url 'answer' %}" method = "POST" name="question"  >
     {% for question in questions %}
 <div class = 'question'>Q. {{ question.question }} </div><br>
 <div id= "choices" class='select'>
