@@ -69,3 +69,5 @@ def index1(request):
             context = {'questions': questions}
             return render(request, 'mcqapp/index.html', context)
 
+    else:
+        return HttpResponse('please login to access quiz')
